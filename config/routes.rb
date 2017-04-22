@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/', to: 'adpages#adtest'
   get '/ads' ,to: 'adpages#adtest'
 
 
