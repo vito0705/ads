@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ECharts</title>
+
+</head>
+<body>
+
+<textarea id="show" name="message" cols="80" rows="9" readonly="readonly">
+请等待页面加载完成...
+</textarea>
+<script type="text/javascript">
+
+    for (var i = 0; i < (<%= @ads_num %>); i++) {
+        var iframe = document.createElement('iframe');
+        iframe.src = "http://pos.baidu.com/xcwm?rdid=2866688&dc=3&di=u2866688&dri=0&dis=0&dai=2&ps=741x5&dcb=___adblockplus&dtm=HTML_POST&dvi=0.0&dci=-1&dpt=none&tsr=0&tpr=1492604836940&ti=JavaScript%20%E4%BA%8B%E4%BB%B6%E5%AF%B9%E5%86%85%E5%AD%98%E5%92%8C%E6%80%A7%E8%83%BD%E7%9A%84%E5%BD%B1%E5%93%8D_javascript%E6%8A%80%E5%B7%A7_%E8%84%9A%E6%9C%AC%E4%B9%8B%E5%AE%B6&ari=2&dbv=2&drs=1&pcs=897x908&pss=1015x4189&cfv=0&cpl=2&chi=2&cce=true&cec=GBK&tlm=1491796871&rw=912&ltu=http%3A%2F%2Fwww.jb51.net%2Farticle%2F103978.htm&ecd=1&uc=1855x1056&pis=-1x-1&sr=1920x1080&tcn=1492604837&qn=daa5a4eb061a6383&tt=1492604836919.36.146.149";
+        iframe.frameborder = 0;
+//        iframe.style = "display: block; width: 120px; height: 240px; margin: 0px; padding: 0px; border: 0px;";
+        iframe.style = "border:0;vertical-align:bottom;margin:0;width:680px;height:100px" ;
+        iframe.allowtransparency= "true";
+        document.body.appendChild(iframe);
+
+    }
+
+
+
+        $(window).load(function () {
+
+             function gettime() {
+                var t = performance.timing;
+                var m = performance.memory;
+
+                var timing = {
+                    renderDomTime: t.domComplete - t.domLoading,
+                    loadPageTime: t.domComplete - t.fetchStart,
+                    domainLookupTime: t.domainLookupEnd - t.domainLookupStart,
+                    TCPConnectTime: t.connectEnd - t.connectStart,
+                    ttfb: t.responseStart - t.navigationStart,
+                    requestTime: t.responseEnd - t.requestStart,
+                    waitTime: t.domLoading - t.navigationStart,
+                }
+                document.getElementById("show").value =
+                    "页面广告数:" + (<%= @ads_num %>) + "\r\n" +
+                    "dom解析时间renderDomTime: domComplete-domLoading" + "=" + timing.renderDomTime + "ms" + "\r\n" +
+                    "页面加载时间loadPageTime: loadEventEnd-fetchStart" + "=" + timing.loadPageTime + "ms" + "\r\n" +
+                    "浏览器所有被使用堆栈内存:" + m.usedJSHeapSize + "\r\n" +
+                    "当前堆栈内存总大小:" + m.totalJSHeapSize + "\r\n" +
+                    "浏览器内存大小限制:" + m.jsHeapSizeLimit + "\r\n";
+                console.log(timing);
+            }
+            gettime()
+
+
+        })
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
