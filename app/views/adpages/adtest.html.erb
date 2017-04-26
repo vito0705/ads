@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>ECharts</title>
+  <title>effert_ads</title>
 
 </head>
 <body>
@@ -41,12 +41,12 @@
                     waitTime: t.domLoading - t.navigationStart,
                 }
                 document.getElementById("show").value =
-                    "页面广告数:" + (<%= @ads_num %>) + "\r\n" +
-                    "dom解析时间renderDomTime: domComplete-domLoading" + "=" + timing.renderDomTime + "ms" + "\r\n" +
-                    "页面加载时间loadPageTime: loadEventEnd-fetchStart" + "=" + timing.loadPageTime + "ms" + "\r\n" +
-                    "浏览器所有被使用堆栈内存:" + m.usedJSHeapSize + "\r\n" +
-                    "当前堆栈内存总大小:" + m.totalJSHeapSize + "\r\n" +
-                    "浏览器内存大小限制:" + m.jsHeapSizeLimit + "\r\n";
+                    "The number of ads:" + (<%= @ads_num %>) + "\r\n" +
+                    "The time of rendering Dom: domComplete-domLoading" + "=" + timing.renderDomTime + "ms" + "\r\n" +
+                    "The time of loading page: loadEventEnd-fetchStart" + "=" + timing.loadPageTime + "ms" + "\r\n" +
+                    "The stack memory which the browser is using:" + m.usedJSHeapSize + "\r\n" +
+                    "The total size of the current stack memory:" + m.totalJSHeapSize + "\r\n" +
+                    "The limit of the browser memory size:" + m.jsHeapSizeLimit + "\r\n";
                 console.log(timing);
             }
             gettime()
